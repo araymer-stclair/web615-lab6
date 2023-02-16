@@ -1,8 +1,9 @@
 # This tells Docker which image to use, this is an offical ruby image from docker
-FROM ruby:2.6
+FROM ruby:2.7.2
 
 # Update the repo listins in the container
 RUN apt-get update
+
 # Install the following pacakges into the container
 RUN apt-get install --assume-yes --no-install-recommends build-essential \
     postgresql-client \

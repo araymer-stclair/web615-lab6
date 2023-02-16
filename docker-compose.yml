@@ -2,14 +2,20 @@ version: '3.4'
 services:
   # These are backend services that the app depends on
   db:
-    image: postgres:9.6.13-alpine
+    logging:
+      driver: none
+    image: postgres:13.4-alpine
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - "54320:5432"
+
   redis:
-    image: redis:5.0-alpine
+    image: redis:6.2.5-alpine
     command: redis-server
     logging:
       driver: none
+
   # These are the components of the app
   app:
     build:
